@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+}
+
+#myList,
+#search {
+  height: 100vh;
+  width: 50vw;
+  padding: 3vw;
+}
+
+#myList {
+  border-right: solid black 1px;
+}

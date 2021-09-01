@@ -1,6 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -11,9 +12,34 @@ body {
 #search {
   height: 100vh;
   width: 50vw;
-  padding: 3vw;
+  padding: 5vh;
 }
 
 #myList {
   border-right: solid black 1px;
+}
+
+.header {
+  height: 10vh;
+  border-bottom: solid black 1px;
+}
+
+#list,
+#resultDiv {
+  height: 80vh;
+  overflow-y: scroll;
+}
+
+.listItem {
+  height: 20vh;
+  padding: 1.5vh 0;
+
+  display: flex;
+
+  border-bottom: solid black 1px;
+}
+
+img {
+  height: 100%;
+  max-width: 90%;
 }

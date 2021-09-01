@@ -6,12 +6,6 @@ const port = 3000;
 server.use(express.json());
 server.use(express.static("public"));
 
-server.get("/test", (req, res) => {
-  let raw = fs.readFileSync("data.json");
-  let data = JSON.parse(raw);
-  res.json(data[0].testValue);
-});
-
 server.get("/api", (req, res) => {
   let raw = fs.readFileSync("data.json");
   let data = JSON.parse(raw);

@@ -4,20 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="./components/renderListItems.js"></script>
     <script defer src="logic.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>I want to watch</title>
   </head>
   <body>
     <div id="myList">
-      <h3>Movies & TV-shows</h3>
+      <div class="header">
+        <h3>List of your favorite movies and TV-shows:</h3>
+      </div>
       <div id="list"></div>
     </div>
     <div id="search">
-      <input type="text" id="searchInput" />
-      <button onclick="searchMovie()" id="searchBtn">Search</button>
-      <h3 id="result">...</h3>
-      <img src="" alt="" id="poster" style="width: 200px" />
+      <div class="header">
+        <h3>Find new favorites:</h3>
+        <input type="text" id="searchInput" />
+        <button onclick="searchMovie()" id="searchBtn">Search</button>
+      </div>
+      <div id="resultDiv">
+        <h3 id="title">...</h3>
+      </div>
     </div>
   </body>
 </html>

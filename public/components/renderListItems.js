@@ -1,3 +1,4 @@
+//Renders items from search result object
 function renderSearchItems(listArray) {
   listArray.map((result) => {
     const listItem = document.createElement("div");
@@ -7,7 +8,6 @@ function renderSearchItems(listArray) {
     imgDiv.style.width = "22%";
     listItem.appendChild(imgDiv);
     const poster = document.createElement("img");
-    //poster.style.maxWidth = "90%";
     poster.src = result.Poster;
     poster.alt = result.Poster;
     imgDiv.appendChild(poster);
@@ -24,6 +24,7 @@ function renderSearchItems(listArray) {
   });
 }
 
+//Renders items from users list (data.json)
 function renderListItems(listArray) {
   listArray.map((result) => {
     const listItem = document.createElement("div");
@@ -33,8 +34,6 @@ function renderListItems(listArray) {
     imgDiv.style.width = "22%";
     listItem.appendChild(imgDiv);
     const poster = document.createElement("img");
-    //poster.style.maxWidth = "90%";
-    //poster.style.maxHeight = "100%";
     poster.src = result.Poster;
     poster.alt = result.Poster;
     imgDiv.appendChild(poster);

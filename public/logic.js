@@ -1,4 +1,4 @@
-let currentItem = undefined;
+let latestSearchObject = undefined;
 
 getList();
 
@@ -20,7 +20,10 @@ async function getList() {
 }
 
 async function postItem(item) {
+  console.log("postItem()");
+  console.log(item);
   const response = await makeRequest("http://localhost:3000/api", "POST", item);
+  console.log(response);
   getList();
 }
 
@@ -31,7 +34,7 @@ async function removeItem(item) {
   getList();
 }
 
-async function searchMovie() {
+async function searchMultiple() {
   const searchInput = document.getElementById("searchInput");
   let resultDiv = document.getElementById("resultDiv");
   clearElementChild(resultDiv.id);
@@ -39,14 +42,26 @@ async function searchMovie() {
   const response = await makeSearchRequest(
     `http://www.omdbapi.com/?s=${searchInput.value}&apikey=b4a443f9`
   );
-  currentItem = response;
-
+  latestSearchObject = response.Search;
   if (response.Response === "True") {
     renderSearchItems(response.Search);
   } else if (response.Response === "False") {
     const title = document.createElement("h3");
     title.innerText = response.Error;
     resultDiv.appendChild(title);
+  }
+}
+
+async function searchSingle(reqObject) {
+  const response = await makeSearchRequest(
+    `http://www.omdbapi.com/?i=${reqObject.id}&apikey=b4a443f9`
+  );
+  console.log("searchSingle:");
+  console.log(response);
+  if (reqObject.action === "render") {
+    renderSingleSearchItem(response);
+  } else if (reqObject.action === "post") {
+    postItem(response);
   }
 }
 

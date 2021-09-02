@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script defer src="./components/renderDetailedItem.js"></script>
     <script defer src="./components/renderListItems.js"></script>
     <script defer src="logic.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -19,6 +20,7 @@
     <div id="myList">
       <div class="header">
         <h3>List of your favorite movies and TV-shows:</h3>
+        <button>Add movie/TV-show</button>
       </div>
       <div id="list"></div>
     </div>
@@ -26,7 +28,7 @@
       <div class="header">
         <h3>Find new favorites:</h3>
         <input type="text" id="searchInput" />
-        <button onclick="searchMovie()" id="searchBtn">Search</button>
+        <button onclick="searchMultiple()" id="searchBtn">Search</button>
       </div>
       <div id="resultDiv">
         <h3 id="title">...</h3>

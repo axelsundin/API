@@ -16,13 +16,19 @@ server.post("/api", (req, res) => {
   try {
     let raw = fs.readFileSync("data.json");
     let data = JSON.parse(raw);
-    if (req.body.todo === "") {
-      res.json("Please enter text");
-      return;
+    let duplicate = false;
+    data.map((item) => {
+      if (item.imdbID === req.body.imdbID) {
+        duplicate = true;
+      }
+    });
+    if (duplicate) {
+      res.json("Already in list");
+    } else {
+      data.push(req.body);
+      fs.writeFileSync("data.json", JSON.stringify(data));
+      res.json("Saved");
     }
-    data.push(req.body);
-    fs.writeFileSync("data.json", JSON.stringify(data));
-    res.json("Saved");
   } catch (err) {
     console.log(err);
   }
@@ -32,12 +38,12 @@ server.delete("/api", (req, res) => {
   try {
     let raw = fs.readFileSync("data.json");
     let data = JSON.parse(raw);
-    if (req.body.action === "clear") {
+    /* if (req.body.action === "clear") {
       data = [];
       fs.writeFileSync("data.json", JSON.stringify(data));
       res.json("List cleared");
       return;
-    }
+    } */
     const newData = data.filter(function (object) {
       if (object.Title != req.body.Title) {
         return object;

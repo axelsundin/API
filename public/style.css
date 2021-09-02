@@ -39,7 +39,14 @@ body {
   border-bottom: solid black 1px;
 }
 
+.imgDiv {
+  width: 15%;
+}
+
+.textDiv {
+  width: 85%;
+}
+
 img {
   height: 100%;
-  max-width: 90%;
 }

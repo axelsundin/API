@@ -10,6 +10,7 @@ function renderSearchItems(listArray) {
     listItem.appendChild(imgDiv);
 
     const poster = document.createElement("img");
+    poster.className = "posterList";
     if (result.Poster === "N/A") {
       poster.src =
         "https://m.media-amazon.com/images/S/sash/mwwP38NFnDXdP7H.png";
@@ -53,6 +54,7 @@ function renderListItems(listArray) {
     imgDiv.className = "imgDiv";
     listItem.appendChild(imgDiv);
     const poster = document.createElement("img");
+    poster.className = "posterList";
     if (result.Poster === "N/A") {
       poster.src =
         "https://m.media-amazon.com/images/S/sash/mwwP38NFnDXdP7H.png";

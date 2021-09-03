@@ -1,5 +1,13 @@
 
-###Complete list from data.json
+//Fetches complete array from data.json
 GET http://localhost:3000/api
 
 ###
+
+//Saves request body to data.json if unique
+POST http://localhost:3000/api
+
+###
+
+//Deletes matching request body from data.json
+DELETE http://localhost:3000/api

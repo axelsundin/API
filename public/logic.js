@@ -1,15 +1,8 @@
+//global variable saving latest search results
 let latestSearchObject = undefined;
 
+//Fetches users list at start
 getList();
-
-function clearElementChild(element) {
-  let elementToClear = document.getElementById(element);
-  let child = elementToClear.lastElementChild;
-  while (child) {
-    elementToClear.removeChild(child);
-    child = elementToClear.lastElementChild;
-  }
-}
 
 async function getList() {
   const list = document.getElementById("list");
@@ -20,10 +13,7 @@ async function getList() {
 }
 
 async function postItem(item) {
-  console.log("postItem()");
-  console.log(item);
   const response = await makeRequest("http://localhost:3000/api", "POST", item);
-  console.log(response);
   getList();
 }
 
@@ -34,6 +24,7 @@ async function removeItem(item) {
   getList();
 }
 
+//Search with multiple results
 async function searchMultiple() {
   const searchInput = document.getElementById("searchInput");
   let resultDiv = document.getElementById("resultDiv");
@@ -56,8 +47,6 @@ async function searchSingle(reqObject) {
   const response = await makeSearchRequest(
     `http://www.omdbapi.com/?i=${reqObject.id}&apikey=b4a443f9`
   );
-  console.log("searchSingle:");
-  console.log(response);
   if (reqObject.action === "render") {
     renderSingleSearchItem(response);
   } else if (reqObject.action === "post") {
@@ -65,6 +54,7 @@ async function searchSingle(reqObject) {
   }
 }
 
+//Requests to local API
 async function makeRequest(url, method, body) {
   try {
     const response = await fetch(url, {
@@ -81,6 +71,7 @@ async function makeRequest(url, method, body) {
   }
 }
 
+//Requests to external API
 async function makeSearchRequest(url) {
   try {
     const response = await fetch(url);
@@ -90,5 +81,15 @@ async function makeSearchRequest(url) {
     return result;
   } catch (err) {
     console.log(err);
+  }
+}
+
+//clears element
+function clearElementChild(element) {
+  let elementToClear = document.getElementById(element);
+  let child = elementToClear.lastElementChild;
+  while (child) {
+    elementToClear.removeChild(child);
+    child = elementToClear.lastElementChild;
   }
 }

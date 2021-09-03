@@ -50,4 +50,4 @@ server.delete("/api", (req, res) => {
   }
 });
 
-server.listen(port, () => console.log("Applikationen är igång. Välkommen!"));
+server.listen(port, () => console.log(`Server running on port: ${port}`));

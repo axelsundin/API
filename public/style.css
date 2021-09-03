@@ -55,6 +55,7 @@ body {
 
 .posterList {
   height: 100%;
+  max-width: 90%;
 }
 
 .btnDiv {

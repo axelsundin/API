@@ -29,7 +29,7 @@ async function postItem(item) {
 
 async function removeItem(item) {
   const response = await makeRequest("http://localhost:3000/api", "DELETE", {
-    Title: item,
+    ID: item,
   });
   getList();
 }

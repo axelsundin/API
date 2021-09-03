@@ -38,14 +38,8 @@ server.delete("/api", (req, res) => {
   try {
     let raw = fs.readFileSync("data.json");
     let data = JSON.parse(raw);
-    /* if (req.body.action === "clear") {
-      data = [];
-      fs.writeFileSync("data.json", JSON.stringify(data));
-      res.json("List cleared");
-      return;
-    } */
     const newData = data.filter(function (object) {
-      if (object.Title != req.body.Title) {
+      if (object.imdbID != req.body.ID) {
         return object;
       }
     });

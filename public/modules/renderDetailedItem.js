@@ -121,7 +121,7 @@ function renderSingleItem(object) {
 
   const removeBtn = document.createElement("button");
   removeBtn.innerText = "Remove";
-  removeBtn.addEventListener("click", () => removeItem(object.Title));
+  removeBtn.addEventListener("click", () => removeItem(object.imdbID));
   btnDiv.appendChild(removeBtn);
 
   const prevBtn = document.createElement("button");

@@ -70,7 +70,7 @@ function renderListItems(listArray) {
     title.innerText = `${result.Title} (${result.Year})`;
     const removeBtn = document.createElement("button");
     removeBtn.innerText = "Remove";
-    removeBtn.addEventListener("click", () => removeItem(result.Title));
+    removeBtn.addEventListener("click", () => removeItem(result.imdbID));
     const infoBtn = document.createElement("button");
     infoBtn.innerText = "Detailed info";
     infoBtn.addEventListener("click", () => {
